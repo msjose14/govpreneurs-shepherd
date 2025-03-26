@@ -1,19 +1,16 @@
 <script>
-  // Function to create a new Shepherd tour instance
+  // Create a new Shepherd tour instance with default options and cancel icon enabled
   function createTour() {
     return new Shepherd.Tour({
       defaultStepOptions: {
         classes: 'shepherd-theme-arrows',
         scrollTo: true
       },
-      // Enables the cancel (close) icon in the top-right corner
-      cancelIcon: {
-        enabled: true
-      }
+      cancelIcon: { enabled: true }
     });
   }
 
-  // Function to add steps to the tour
+  // Add the intro step to the tour; with no attachTo property it appears in the center
   function addTourSteps(tour) {
     tour.addStep({
       id: 'intro',
@@ -21,10 +18,7 @@
         <h3>Welcome to GovPreneurs Guided Tour!</h3>
         <p>This guided tour will help you discover the key features and functionalities of GovPreneurs, ensuring you have all the information you need to get started.</p>
       `,
-      attachTo: { element: '.my-element', on: 'bottom' },
-      buttons: [
-        { text: 'Next', action: tour.next }
-      ]
+      buttons: [{ text: 'Next', action: tour.next }]
     });
   }
 
@@ -34,10 +28,9 @@
     addTourSteps(tour);
     tour.start();
 
-    // Attach event listeners to all elements with the class "startguide"
+    // Restart the tour when any button with the class "startguide" is clicked
     document.querySelectorAll('.startguide').forEach(function(button) {
       button.addEventListener('click', function() {
-        // Re-create the tour instance to restart the guide fully
         tour = createTour();
         addTourSteps(tour);
         tour.start();
