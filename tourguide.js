@@ -1,7 +1,3 @@
-<!-- Include Shepherd CSS and JS in your head -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js/dist/css/shepherd.css" />
-<script src="https://cdn.jsdelivr.net/npm/shepherd.js/dist/js/shepherd.min.js"></script>
-
 <script>
   // Function to create a new Shepherd tour instance
   function createTour() {
